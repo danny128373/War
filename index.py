@@ -1,36 +1,26 @@
-# try:
-#     for i in ['a', 'b', 'c']:
-#         print(i**2)
-# except TypeError:
-#     print("There's a TypeError in your code bruh")
-# finally:
-#     print("It's all good, debug and try again!")
+from card import Card
+from deck import Deck
+from player import Player
+import settings
 
-# x = 5
-# y = 0
+two_hearts = Card("Hearts", "Two")
+three_clubs = Card("Clubs", "Three")
+new_deck = Deck()
 
-# try:
-#     z = x/y
-#     print(z)
-# except ZeroDivisionError:
-#     print("Maybe you mixed up the numerator and the denominator")
-# finally:
-#     print("Division is fun!")
+# print(settings.values[two_hearts.rank])
+# print(settings.values[three_clubs.rank])
+# print(new_deck.all_cards)
+print(new_deck.all_cards[-1])
+new_deck.shuffle()
+my_card = new_deck.deal_one()
+print(my_card)
+print(len(new_deck.all_cards))
+new_player = Player("Jose")
+print(new_player)
+new_player.add_cards(my_card)
+new_player.add_cards(my_card)
+new_player.add_cards(my_card)
+print(new_player)
 
-
-# def ask():
-#     while True:
-#         try:
-#             num = int(input("Please provide an integer: "))
-#             print(f"The square of the number you entered is {num ** 2} ")
-#         except:
-#             print("Hey douchebag, you didn't enter a number")
-#             continue
-#         else:
-#             print("Thank you, douchebag.")
-#             break
-#         finally:
-#             print("Fuck")
-
-
-# ask()
+for card in new_player.all_cards:
+    print(f"{new_player.name} has the card: {card}")
